@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="js/jquery-ui/jquery-ui.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<form id="reg_form" method="post" action="register.php">
+    <input placeholder="Email-id" type="text" name="email" autocomplete="off"/>
+    <input  placeholder="Name" type="text" name="name"/>
+    <select  name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <input  placeholder="Date of Birth" type="text" name="DOB"/>
+    <input  placeholder="college" type="text" name="college"/>
+    <input  placeholder="City" type="text" name="city"/>
+    <input  placeholder="Mobile Number" type="text" name="phone"/>
+    <input id="reg_button" type="submit" value="Submit"/>
+</form>
+<div id="events_registered">
+    <h4 >Registered Events</h4>
+</div>
+<div id="new_events_reg">
+    <h4 >Events to be registered</h4>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui/jquery-ui.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</html>
