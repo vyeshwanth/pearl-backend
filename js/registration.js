@@ -108,40 +108,41 @@ function prePopulateForm(email) {
         dataType: "xml",
         url: "userdata.php",
         data: {'email': email},
-        success : function(data){
-            var text = $(data).find("status").text();
-            if(text == 'registered'){
-                var $details = $(data).find("details"),
-                    email = $details.find("email").text(),
-                    name = $details.find("name").text(),
-                    gender = $details.find("gender").text(),
-                    DOB = $details.find("DOB").text(),
-                    college = $details.find("college").text(),
-                    city = $details.find("city").text(),
-                    phone = $details.find("phone").text(),
-                    $form_input = $('.contact-form').find('.form-control');
-
-                $form_input.parent('.input-block').addClass('focus');
-                $form_input.parent().find('label').animate({
-                    'top': '10px',
-                    'fontSize': '14px'
-                }, 300);
-
-                $form.find("input[name='email']").val(email);
-                $form.find("input[name='name']").val(name).attr("readonly","readonly");
-                $form.find("select[name='gender']").val(gender).attr("readonly","readonly");
-                $form.find("input[name='DOB']").val(DOB).attr("readonly","readonly");
-                $form.find("input[name='college']").val(college).attr("readonly","readonly");
-                $form.find("input[name='city']").val(city).attr("readonly","readonly");
-                $form.find("input[name='phone']").val(phone).attr("readonly","readonly");
-                //displaying registered events
-                // var $eventsRegd = $(data).find("eventsRegd").find("event");
-                // $eventsRegd.each(function() {
-                //     var name = $(this).find("name").text();
-                //     console.log(name);
-                //     $("#events_registered").append("<li>"+name+"</li>").css("display","block");
-                // });
-            }
-        }
+        success : handlePrePopulateFormResponse
     });
 }
+handlePrePopulateFormResponse = function(data){
+    var text = $(data).find("status").text();
+    if(text == 'registered'){
+        var $details = $(data).find("details"),
+            email = $details.find("email").text(),
+            name = $details.find("name").text(),
+            gender = $details.find("gender").text(),
+            DOB = $details.find("DOB").text(),
+            college = $details.find("college").text(),
+            city = $details.find("city").text(),
+            phone = $details.find("phone").text(),
+            $form_input = $('.contact-form').find('.form-control');
+
+        $form_input.parent('.input-block').addClass('focus');
+        $form_input.parent().find('label').animate({
+            'top': '10px',
+            'fontSize': '14px'
+        }, 300);
+
+        $form.find("input[name='email']").val(email);
+        $form.find("input[name='name']").val(name).attr("readonly","readonly");
+        $form.find("select[name='gender']").val(gender).attr("readonly","readonly");
+        $form.find("input[name='DOB']").val(DOB).attr("readonly","readonly");
+        $form.find("input[name='college']").val(college).attr("readonly","readonly");
+        $form.find("input[name='city']").val(city).attr("readonly","readonly");
+        $form.find("input[name='phone']").val(phone).attr("readonly","readonly");
+        //displaying registered events
+        // var $eventsRegd = $(data).find("eventsRegd").find("event");
+        // $eventsRegd.each(function() {
+        //     var name = $(this).find("name").text();
+        //     console.log(name);
+        //     $("#events_registered").append("<li>"+name+"</li>").css("display","block");
+        // });
+    }
+};
